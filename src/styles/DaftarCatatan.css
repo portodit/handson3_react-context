@@ -1,0 +1,31 @@
+.daftar-catatan {
+    padding: 20px;
+  }
+  
+  .daftar-catatan h2 {
+    font-size: 2rem;
+    color: var(--text);
+  }
+  
+  .daftar-catatan ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .daftar-catatan li {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: var(--button-background-color);
+    border-radius: 5px;
+  }
+  
+  .daftar-catatan li h3 {
+    margin: 0;
+    color: var(--text);
+  }
+  
+  .daftar-catatan li p {
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+  

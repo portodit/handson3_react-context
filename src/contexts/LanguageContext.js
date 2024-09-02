@@ -1,24 +1,19 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState } from 'react';
 
-// Buat context
-const LanguageContext = createContext();
+export const LanguageContext = createContext();
 
-// Buat provider
 const LanguageContextProvider = ({ children }) => {
-  const [language, setLanguage] = useState('en'); // Default language
+  const [language, setLanguage] = useState('en');
 
-  const switchLanguage = (lang) => {
-    setLanguage(lang);
+  const toggleLanguage = () => {
+    setLanguage((prevLang) => (prevLang === 'en' ? 'id' : 'en'));
   };
 
   return (
-    <LanguageContext.Provider value={{ language, switchLanguage }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
-// Custom hook untuk menggunakan context
-const useLanguage = () => useContext(LanguageContext);
-
-export { LanguageContextProvider, useLanguage };
+export default LanguageContextProvider;

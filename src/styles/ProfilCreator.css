@@ -1,0 +1,14 @@
+.profil-creator {
+    padding: 20px;
+  }
+  
+  .profil-creator h2 {
+    font-size: 2rem;
+    color: var(--text);
+  }
+  
+  .profil-creator p {
+    color: var(--text);
+    font-size: 1rem;
+  }
+  

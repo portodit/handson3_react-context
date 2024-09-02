@@ -1,0 +1,31 @@
+.arsip-catatan {
+    padding: 20px;
+  }
+  
+  .arsip-catatan h2 {
+    font-size: 2rem;
+    color: var(--text);
+  }
+  
+  .arsip-catatan ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .arsip-catatan li {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: var(--button-background-color);
+    border-radius: 5px;
+  }
+  
+  .arsip-catatan li h3 {
+    margin: 0;
+    color: var(--text);
+  }
+  
+  .arsip-catatan li p {
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+  

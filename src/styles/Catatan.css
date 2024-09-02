@@ -1,30 +1,39 @@
-.catatan-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .catatan-input, .catatan-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #dddddd;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  .catatan-save-button {
-    background: linear-gradient(90deg, #111111, #555555);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  .catatan-save-button:hover {
-    opacity: 0.9;
-  }
-  
+.catatan-form {
+  padding: 20px;
+}
+
+.catatan-form h2 {
+  font-size: 2rem;
+  color: var(--text);
+}
+
+.catatan-form input,
+.catatan-form select,
+.catatan-form textarea {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.catatan-form .error {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.catatan-form button {
+  padding: 10px 15px;
+  background-color: var(--button-background-color);
+  color: var(--text);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.catatan-form button:hover {
+  background-color: var(--text);
+  color: var(--background-color);
+}

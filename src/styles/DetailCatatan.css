@@ -1,0 +1,29 @@
+.detail-catatan {
+    padding: 20px;
+  }
+  
+  .detail-catatan h2 {
+    font-size: 2rem;
+    color: var(--text);
+  }
+  
+  .detail-catatan p {
+    color: var(--text);
+    font-size: 1rem;
+  }
+  
+  .detail-catatan button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    background-color: var(--button-background-color);
+    color: var(--text);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .detail-catatan button:hover {
+    background-color: var(--text);
+    color: var(--background-color);
+  }
+  

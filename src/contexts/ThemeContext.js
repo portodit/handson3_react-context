@@ -1,17 +1,19 @@
-import { createContext, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { createContext, useState, useEffect } from 'react';
 
 export const ThemeContext = createContext();
 
-const ThemeProvider = ({ children }) => {
-  const lightModeMediaQuery = window.matchMedia('(prefers-color-scheme: light)');
-  const mode = lightModeMediaQuery.matches ? 'light' : 'dark';
-
-  const [theme, setTheme] = useState(mode);
+const ThemeContextProvider = ({ children }) => {
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
   };
+
+  useEffect(() => {
+    document.body.className = theme === 'dark' ? 'dark-mode' : 'light-mode';
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -20,8 +22,4 @@ const ThemeProvider = ({ children }) => {
   );
 };
 
-export default ThemeProvider;
-
-ThemeProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+export default ThemeContextProvider;

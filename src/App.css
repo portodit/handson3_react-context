@@ -1,24 +1,72 @@
-#root {
-  background-color: var(--background-color);
-  color: var(--text);
-  height: 100vh;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.2s;
+/* Reset CSS and Font Setup */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.2s, color 0.2s;
 }
 
+#root {
+  min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--background-color);
+}
+
+.navbar .logo img {
+  height: 40px;
+}
+
+.navbar nav a {
+  margin: 0 1rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.navbar .toggle-icons svg {
+  cursor: pointer;
+  margin-left: 1rem;
+  color: var(--text);
+}
+
+/* Homepage Styling */
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.homepage h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.homepage p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.homepage .mockup {
+  width: 80%;
+  max-width: 500px;
+}
+
+/* Dark and Light Mode Styles */
 .dark-mode {
-  --text: rgba(255, 255, 255, 0.87);
   --background-color: #242424;
-  --button-background-color: #1a1a1a;
+  --text: rgba(255, 255, 255, 0.87);
 }
 
 .light-mode {
-  --text: #213547;
   --background-color: #ffffff;
-  --button-background-color: #f9f9f9;
-}
-
-.card {
-  padding: 2em;
+  --text: #213547;
 }
