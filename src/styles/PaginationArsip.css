@@ -1,0 +1,21 @@
+.pagination-arsip {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .pagination-button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    background-color: var(--button-background-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--text);
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pagination-button:hover {
+    background-color: var(--button-background-hover-color);
+  }
+  

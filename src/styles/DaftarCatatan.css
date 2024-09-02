@@ -12,14 +12,36 @@
   text-align: center;
 }
 
-.daftar-catatan ul {
+.search-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px 0;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--input-background);
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--highlight-color);
+  outline: none;
+}
+
+.note-list {
   list-style-type: none;
   padding: 0;
   width: 100%;
   max-width: 800px;
 }
 
-.daftar-catatan li {
+.note-item {
   margin: 15px 0;
   padding: 15px;
   background-color: var(--button-background-color);
@@ -27,12 +49,18 @@
   text-align: center;
 }
 
-.daftar-catatan li h3 {
+.note-item h3 {
   margin: 0;
   color: var(--text);
 }
 
-.daftar-catatan li p {
+.note-item p {
   color: var(--text);
   font-size: 0.9rem;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }

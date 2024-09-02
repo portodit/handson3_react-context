@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNotes } from '../contexts/NoteContext';
 import '../styles/Catatan.css';
 
 const Catatan = () => {
@@ -6,6 +7,7 @@ const Catatan = () => {
   const [category, setCategory] = useState('');
   const [body, setBody] = useState('');
   const [error, setError] = useState('');
+  const { addNote } = useNotes(); // Pastikan ini ada
 
   const handleSave = () => {
     if (body.length > 250) {
@@ -13,7 +15,20 @@ const Catatan = () => {
       return;
     }
 
-    // Logic to save note here
+    const newNote = {
+      id: `notes-${Date.now()}`,
+      title: `${title} - PORTODIT`,
+      body: `${body}\n\nNama Penulis: I Putu Adhitya Pratama M`,
+      category,
+      archived: false,
+      createdAt: new Date().toISOString(),
+    };
+
+    addNote(newNote);
+    setTitle('');
+    setCategory('');
+    setBody('');
+    setError('');
   };
 
   return (
@@ -27,8 +42,9 @@ const Catatan = () => {
       />
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="">Pilih Kategori</option>
-        <option value="kategori1">Kategori 1</option>
-        <option value="kategori2">Kategori 2</option>
+        <option value="React">React</option>
+        <option value="Laravel">Laravel</option>
+        <option value="Kotlin">Kotlin</option>
       </select>
       <textarea
         placeholder="Isi Catatan"
@@ -37,6 +53,9 @@ const Catatan = () => {
       ></textarea>
       {error && <p className="error">{error}</p>}
       <button onClick={handleSave}>Simpan Catatan</button>
+      <div className="footer">
+        Platform ini dibuat oleh I Putu Adhitya Pratama M
+      </div>
     </div>
   );
 };

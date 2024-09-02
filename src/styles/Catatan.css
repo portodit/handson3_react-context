@@ -1,10 +1,22 @@
 .catatan-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  max-width: 1000px;
+  top: 150px;
+  margin: auto;
+  position: relative;
+  background-color: var(--card-background-color);
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif; 
 }
 
 .catatan-form h2 {
   font-size: 2rem;
   color: var(--text);
+  margin-top: 0; 
 }
 
 .catatan-form input,
@@ -15,8 +27,19 @@
   margin: 10px 0;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 2px solid var(--border-color); 
   border-radius: 5px;
+  background-color: var(--input-background-color);
+  color: var(--text);
+  font-family: 'Inter', sans-serif; 
+  transition: border-color 0.2s; 
+}
+
+.catatan-form input:focus,
+.catatan-form select:focus,
+.catatan-form textarea:focus {
+  border-color: var(--input-focus-border-color); 
+  outline: none; 
 }
 
 .catatan-form .error {
@@ -27,13 +50,42 @@
 .catatan-form button {
   padding: 10px 15px;
   background-color: var(--button-background-color);
-  color: var(--text);
+  color: var(--button-text-color);
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s; 
+  font-family: 'Inter', sans-serif; 
 }
 
 .catatan-form button:hover {
-  background-color: var(--text);
-  color: var(--background-color);
+  background-color: var(--button-hover-background-color);
+  color: var(--button-hover-text-color);
+}
+
+.dark-mode .catatan-form button {
+  background-color: var(--button-dark-background-color);
+  color: var(--button-dark-text-color);
+}
+
+.dark-mode .catatan-form button:hover {
+  background-color: var(--button-dark-hover-background-color);
+  color: var(--button-dark-hover-text-color);
+}
+
+.light-mode .catatan-form button {
+  background-color: var(--button-light-background-color);
+  color: black; 
+}
+
+.light-mode .catatan-form button:hover {
+  background-color: var(--button-light-hover-background-color);
+  color: black; 
+}
+
+.catatan-form .footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-family: 'Inter', sans-serif; 
 }

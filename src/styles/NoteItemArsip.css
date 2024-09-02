@@ -1,0 +1,30 @@
+.note-item-arsip {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: var(--button-background-color);
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .note-item-arsip h3 {
+    margin: 0;
+    color: var(--text);
+  }
+  
+  .note-item-arsip p {
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+  
+  .note-item-arsip button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--button-background-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--text);
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
