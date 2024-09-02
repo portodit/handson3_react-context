@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Homepage from './pages/Homepage';
+import Login from './pages/Login';
+import Catatan from './pages/Catatan';
+import ArsipCatatan from './pages/ArsipCatatan';
+import DetailCatatan from './pages/DetailCatatan';
+import NotFound from './pages/NotFound';
+import AuthContextProvider from './contexts/AuthContext';
+import ThemeContextProvider from './contexts/ThemeContext';
+import LanguageContextProvider from './contexts/LanguageContext';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AuthContextProvider>
+        <ThemeContextProvider>
+          <LanguageContextProvider>
+            <div className="App">
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/catatanbaru" element={<Catatan />} />
+                <Route path="/arsipcatatan" element={<ArsipCatatan />} />
+                <Route path="/catatan/:kategori/:id" element={<DetailCatatan />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+          </LanguageContextProvider>
+        </ThemeContextProvider>
+      </AuthContextProvider>
+    </Router>
   );
 }
 

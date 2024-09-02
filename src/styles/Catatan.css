@@ -1,0 +1,30 @@
+.catatan-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .catatan-input, .catatan-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .catatan-save-button {
+    background: linear-gradient(90deg, #111111, #555555);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .catatan-save-button:hover {
+    opacity: 0.9;
+  }
+  
