@@ -1,28 +1,41 @@
-// DaftarCatatan.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import notesData from '../utils/NotesData';
+import React, { useState } from 'react';
+import NoteItem from '../components/NoteItem';
 import '../styles/DaftarCatatan.css';
+import Pagination from '../components/Paginations';
+import notesData from '../utils/NotesData';
 
 const DaftarCatatan = () => {
+  const [notes, setNotes] = useState(notesData);
+  const [currentPage, setCurrentPage] = useState(1);
+  const notesPerPage = 2;
+
+  const indexOfLastNote = currentPage * notesPerPage;
+  const indexOfFirstNote = indexOfLastNote - notesPerPage;
+  const currentNotes = notes.slice(indexOfFirstNote, indexOfLastNote);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
+  const handleDelete = id => {
+    setNotes(notes.filter(note => note.id !== id));
+  };
+
   return (
     <div className="daftar-catatan">
       <h2>Daftar Catatan</h2>
-      {notesData.length === 0 ? (
+      {currentNotes.length === 0 ? (
         <p>Tidak ada catatan.</p>
       ) : (
-        <ul>
-          {notesData.map(note => (
-            <li key={note.id}>
-              <Link to={`/catatan/${note.category || 'umum'}/${note.id}`}>
-                <h3>{note.title}</h3>
-                <p>{new Date(note.createdAt).toLocaleDateString()}</p>
-                <p>{note.body.substring(0, 100)}...</p>
-              </Link>
-            </li>
+        <div className="note-list">
+          {currentNotes.map(note => (
+            <NoteItem key={note.id} note={note} onDelete={handleDelete} />
           ))}
-        </ul>
+        </div>
       )}
+      <Pagination 
+        notesPerPage={notesPerPage} 
+        totalNotes={notes.length} 
+        paginate={paginate} 
+      />
     </div>
   );
 };

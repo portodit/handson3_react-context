@@ -5,23 +5,29 @@
   align-items: center;
   padding: 20px;
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
   border-radius: 999px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, color 0.3s ease;
-  background-color: var(--navbar-background-color); 
+  background-color: var(--navbar-background-color);
+  position: fixed;
+  top: 20px; 
+  left: 0;
+  right: 0;
+  z-index: 1000; 
 }
 
 .navbar .logo img {
-  width: 90%; 
-  height: auto; 
+  width: 90%;
+  height: auto;
   padding-top: 4px;
   transition: filter 0.3s ease;
+  filter: none;
 }
 
 .navbar nav a {
   margin: 0 15px;
-  color: var(--text); 
+  color: var(--text);
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
@@ -36,7 +42,7 @@
   margin-left: 20px;
   cursor: pointer;
   font-size: 1.5rem;
-  color: var(--text); 
+  color: var(--text);
   transition: color 0.3s ease;
 }
 
@@ -44,9 +50,9 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-
+/* Dark Mode Styling */
 .dark-mode .navbar {
-  background-color: #333333; 
+  background-color: #333333;
 }
 
 .dark-mode .navbar nav a,
@@ -54,12 +60,41 @@
   color: #ffffff;
 }
 
-
+/* Light Mode Styling */
 .light-mode .navbar {
-  background-color: #f1f1f1; 
+  background-color: #f1f1f1;
 }
 
 .light-mode .navbar nav a,
 .light-mode .navbar .toggle-icons svg {
-  color: #242424; 
+  color: #242424;
+}
+
+/* Floating Add New Note Icon */
+.add-note-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--button-background-color);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  cursor: pointer;
+  z-index: 1000; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.add-note-icon svg {
+  font-size: 2rem;
+  color: var(--text);
+}
+
+/* Dark Mode Styling for Add Note Icon */
+.dark-mode .add-note-icon {
+  background-color: #333333;
+}
+
+/* Light Mode Styling for Add Note Icon */
+.light-mode .add-note-icon {
+  background-color: #f1f1f1;
 }

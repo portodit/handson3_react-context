@@ -2,20 +2,32 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/DetailCatatan.css';
 
-const DetailCatatan = ({ notes }) => {
+const DetailCatatan = ({ notes, setNotes }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const note = notes.find(n => n.id === id);
 
   const handleDelete = () => {
-    // Delete note logic here
-    navigate('/daftarcatatan');
+    const updatedNotes = notes.filter(n => n.id !== id);
+    setNotes(updatedNotes); 
+    navigate('/daftarcatatan'); 
   };
 
   const handleArchive = () => {
-    // Archive note logic here
-    navigate('/arsipcatatan');
+    const updatedNotes = notes.map(n =>
+      n.id === id ? { ...n, archived: true } : n
+    );
+    setNotes(updatedNotes); 
+    navigate('/arsipcatatan'); 
+  };
+
+  const handleUnarchive = () => {
+    const updatedNotes = notes.map(n =>
+      n.id === id ? { ...n, archived: false } : n
+    );
+    setNotes(updatedNotes);
+    navigate('/daftarcatatan'); 
   };
 
   return (
@@ -23,10 +35,16 @@ const DetailCatatan = ({ notes }) => {
       {note ? (
         <>
           <h2>{note.title}</h2>
-          <p>{note.createdAt}</p>
+          <p>{new Date(note.createdAt).toLocaleDateString()}</p>
           <p>{note.body}</p>
-          <button onClick={handleDelete}>Hapus Catatan</button>
-          <button onClick={handleArchive}>Arsipkan Catatan</button>
+          {note.archived ? (
+            <button onClick={handleUnarchive}>Batalkan Arsip</button>
+          ) : (
+            <>
+              <button onClick={handleDelete}>Hapus Catatan</button>
+              <button onClick={handleArchive}>Arsipkan Catatan</button>
+            </>
+          )}
         </>
       ) : (
         <p>Catatan tidak ditemukan.</p>
