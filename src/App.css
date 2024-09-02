@@ -1,30 +1,24 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
-  color: #111111;
+#root {
+  background-color: var(--background-color);
+  color: var(--text);
+  height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.2s;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+.dark-mode {
+  --text: rgba(255, 255, 255, 0.87);
+  --background-color: #242424;
+  --button-background-color: #1a1a1a;
 }
 
-main {
-  flex: 1;
-  padding: 20px;
+.light-mode {
+  --text: #213547;
+  --background-color: #ffffff;
+  --button-background-color: #f9f9f9;
 }
 
-button {
-  background: linear-gradient(90deg, #111111, #555555);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
+.card {
+  padding: 2em;
 }

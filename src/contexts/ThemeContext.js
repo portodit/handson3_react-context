@@ -1,11 +1,13 @@
-import React, { createContext, useState, useContext } from 'react';
+import { createContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
-// Buat context
-const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
-// Buat provider
-const ThemeContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light'); // Default theme
+const ThemeProvider = ({ children }) => {
+  const lightModeMediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+  const mode = lightModeMediaQuery.matches ? 'light' : 'dark';
+
+  const [theme, setTheme] = useState(mode);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -18,6 +20,8 @@ const ThemeContextProvider = ({ children }) => {
   );
 };
 
-const useTheme = () => useContext(ThemeContext);
+export default ThemeProvider;
 
-export { ThemeContextProvider, useTheme };
+ThemeProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
