@@ -1,13 +1,15 @@
+/* Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   max-width: 800px;
-  margin: 20px auto;
+  margin: auto;
   border-radius: 999px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--navbar-background-color); 
 }
 
 .navbar .logo img {
@@ -19,7 +21,7 @@
 
 .navbar nav a {
   margin: 0 15px;
-  color: inherit;
+  color: var(--text); 
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s ease;
@@ -34,10 +36,30 @@
   margin-left: 20px;
   cursor: pointer;
   font-size: 1.5rem;
-  color: inherit;
+  color: var(--text); 
   transition: color 0.3s ease;
 }
 
 .navbar:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.dark-mode .navbar {
+  background-color: #333333; 
+}
+
+.dark-mode .navbar nav a,
+.dark-mode .navbar .toggle-icons svg {
+  color: #ffffff;
+}
+
+
+.light-mode .navbar {
+  background-color: #f1f1f1; 
+}
+
+.light-mode .navbar nav a,
+.light-mode .navbar .toggle-icons svg {
+  color: #242424; 
 }

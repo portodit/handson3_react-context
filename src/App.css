@@ -4,6 +4,8 @@ body {
   margin: 0;
   padding: 0;
   transition: background-color 0.2s, color 0.2s;
+  background-color: var(--background-color);
+  color: var(--text);
 }
 
 #root {
@@ -16,7 +18,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: var(--background-color);
+  background-color: var(--navbar-background-color);
 }
 
 .navbar .logo img {
@@ -43,6 +45,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 2rem;
 }
 
 .homepage h1 {
@@ -60,13 +63,16 @@ body {
   max-width: 500px;
 }
 
-/* Dark and Light Mode Styles */
+
 .dark-mode {
-  --background-color: #242424;
-  --text: rgba(255, 255, 255, 0.87);
+  --background-color: #242424; 
+  --text: #ffffff;
+  --navbar-background-color: #333333;
 }
 
 .light-mode {
-  --background-color: #ffffff;
-  --text: #213547;
+  --background-color: #f1f1f1; 
+  --text: #242424;
+  --navbar-background-color: #f1f1f1; 
 }
+

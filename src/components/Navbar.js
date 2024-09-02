@@ -3,8 +3,8 @@ import { ThemeContext } from '../contexts/ThemeContext';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
 import { FaMoon, FaSun, FaLanguage } from 'react-icons/fa';
-import lightIcon from '../assets/diginote.svg';  // Import light mode logo
-import darkIcon from '../assets/diginote_white.svg';  // Import dark mode logo
+import lightIcon from '../assets/diginote.svg';  
+import darkIcon from '../assets/diginote_white.svg';  
 
 import '../styles/Navbar.css';
 
@@ -13,7 +13,7 @@ const Navbar = () => {
   const { language, toggleLanguage } = useContext(LanguageContext);
 
   return (
-    <div className="navbar" style={{ backgroundColor: theme === 'light' ? '#ffffff' : '#242424' }}>
+    <div className={`navbar ${theme === 'dark' ? 'dark-mode' : 'light-mode'}`}>
       <div className="logo">
         <Link to="/">
           <img
